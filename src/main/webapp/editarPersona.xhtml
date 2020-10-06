@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Tarea 02 : Aplicación Rest</title>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous"></link>
+</h:head>
+<h:body>
+	<div class="row">
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-expand-md navbar-dark"
+					style="background-color: tomato">
+
+
+					<ul class="navbar-nav">
+						<li></li>
+					</ul>
+				</nav>
+			</header>
+			<div class="container">
+				<h2 align="center">UNIVERSIDAD CENTRAL DEL ECUADOR</h2>
+				<h2 align="center">INGENIERÍA INFORMÁTICA</h2>
+				<h2 align="center">PROGRAMACIÓN DISTRIBUIDA</h2>
+				<h2 align="center">Edwin Bryan Chalacán Araujo</h2>
+			</div>
+			<br /> <br />
+			<h2 align="center">EDITAR PERSONA</h2>
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="1" border="1">
+					<h:outputText value="Nombre" />
+					<h:inputText value="#{usuarioControlador.usuario.nombre}" />
+					<h:outputText value="Apellido" />
+					<h:inputText value="#{usuarioControlador.usuario.direccion}" />
+					<h:outputText value="correo" />
+					<h:inputText value="#{usuarioControlador.usuario.email}" />
+
+				</h:panelGrid>
+				<h:commandButton value="Guardar"
+					action="#{usuarioControlador.editar()}" />
+				<h:commandButton value="Cancelar"
+					action="persona?faces-redirect=true" />
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

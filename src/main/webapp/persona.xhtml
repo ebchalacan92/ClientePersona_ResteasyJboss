@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Tarea 02 : Aplicación Rest</title>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous"></link>
+</h:head>
+<h:body>
+	<div class="row">
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-expand-md navbar-dark"
+					style="background-color: tomato">
+
+
+					<ul class="navbar-nav">
+						<li></li>
+					</ul>
+				</nav>
+			</header>
+			<div class="container">
+				<h2 align="center">UNIVERSIDAD CENTRAL DEL ECUADOR</h2>
+				<h2 align="center">INGENIERÍA INFORMÁTICA</h2>
+				<h2 align="center">PROGRAMACIÓN DISTRIBUIDA</h2>
+				<h2 align="center">Edwin Bryan Chalacán Araujo</h2>
+			</div>
+			<h:panelGrid columns="1" cellpadding="5" cellspacing="1" border="1">
+				<h:form>
+					<h3 align="center">
+						<h:commandButton value="Crear Usuario"
+							action="crearPersona?faces-redirect=true" />
+					</h3>
+				</h:form>
+			</h:panelGrid>
+			<br /> 
+				<h2 align="center">LISTA DE USUARIOS</h2>
+			<h:form>
+				<h3 align="center">
+					<h:dataTable style="float: inherit"
+						value="#{usuarioControlador.lista}" var="element" cellspacing="1"
+						cellpadding="1" border="1">
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{element.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nombre</f:facet>
+							<h:outputText value="#{element.nombre}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Direccion</f:facet>
+							<h:outputText value="#{element.direccion}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+							<h:outputText value="#{element.email}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Editar/Eliminar</f:facet>
+							<h:commandButton value="Editar"
+								action="#{usuarioControlador.redireccionEditar(element)}" />
+							<h:commandButton value="Eliminar"
+								action="#{usuarioControlador.eliminarPersona(element.id)}" />
+						</h:column>
+					</h:dataTable>
+				</h3>
+				<br />
+				<h:panelGrid columns="1" cellpadding="5" cellspacing="1" border="1">
+					<h:form>
+						<h3 align="center">
+							<h:commandButton value="Volver a Inicio"
+								action="index?faces-redirect=true" />
+						</h3>
+					</h:form>
+				</h:panelGrid>
+
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>
